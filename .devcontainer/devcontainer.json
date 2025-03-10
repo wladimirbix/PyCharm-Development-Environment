@@ -1,5 +1,5 @@
 {
-    "name": "vsc_development_environment_devcontainer",
+    "name": "pycharm_development_environment_devcontainer",
     "build": {
         "dockerfile": "Dockerfile",
         "context": "."
