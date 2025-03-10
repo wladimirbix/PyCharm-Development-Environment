@@ -1,0 +1,68 @@
+
+# Enable rules related to formatting, complexity, and code quality.
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+    # Docstrings
+    "D",
+    # Warnings
+    "W",
+    # pep8-Naming
+    "N",
+    # Annotations
+    "ANN",
+    # Flake bandit
+    "S",
+    # Flake 8 bugbear
+    "B",
+    # Flake8 logging
+    "LOG",
+    # Flake 8 logging format
+    "G"
+]
+
+# Select the maximum number of characters within a line
+line-length = 120
+
+# Select the number of indentations
+indent-width = 4
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+# Enable auto-formatting of code examples in docstrings. Markdown,
+# reStructuredText code/literal blocks and doctests are all supported.
+#
+# This is currently disabled by default, but it is planned for this
+# to be opt-out in the future.
+docstring-code-format = false
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+#
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = "dynamic"
