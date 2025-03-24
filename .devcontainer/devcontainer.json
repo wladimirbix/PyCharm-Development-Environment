@@ -4,8 +4,15 @@
         "dockerfile": "Dockerfile",
         "context": "."
     },
+    "postCreateCommand": "python3 -m venv /workspace/.venv && /workspace/.venv/bin/pip install --upgrade pip",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "/workspace/.venv/bin/python"
+            }
+        }
+    },
 
-    
-    "postStartCommand": "python /project/unicon/config_builder.py"
+    "postStartCommand": ". /workspace/.venv/bin/activate && python /project/unicon/config_builder.py && echo '. /workspace/.venv/bin/activate' >> ~/.bashrc"
 
 }
