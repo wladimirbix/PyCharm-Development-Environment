@@ -15,20 +15,20 @@ COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 COPY requirements.txt requirements.txt
 
 # Create virtual environment and install dependencies
-RUN uv venv --python '>=3.12' /default_python_venv && \
-    . /default_python_venv/bin/activate && \
+RUN uv venv --python '>=3.12' /.venv && \
+    . /.venv/bin/activate && \
     uv pip install -r requirements.txt
 
 # Ensure the virtual environment is used and recognized by Databricks/VSCode
-ENV PATH="/default_python_venv/bin:$PATH"
-ENV VIRTUAL_ENV="/default_python_venv"
+ENV PATH="/.venv/bin:$PATH"
+ENV VIRTUAL_ENV="/.venv"
 
 # Copy the project files
 WORKDIR /project
 COPY ./ .
 
 # Create a script to automatically activate the virtual environment on container start
-RUN echo '#!/bin/bash\nsource /default_python_venv/bin/activate\nexec "$@"' > /entrypoint.sh && \
+RUN echo '#!/bin/bash\nsource /.venv/bin/activate\nexec "$@"' > /entrypoint.sh && \
     chmod +x /entrypoint.sh
 
 # Set the entrypoint to automatically activate the venv when the container starts

@@ -1,18 +1,7 @@
 {
-    "name": "pycharm_development_environment_devcontainer",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "context": "."
-    },
-    "postCreateCommand": "python3 -m venv /workspace/.venv && /workspace/.venv/bin/pip install --upgrade pip",
-    "customizations": {
-        "vscode": {
-            "settings": {
-                "python.defaultInterpreterPath": "/workspace/.venv/bin/python"
-            }
-        }
-    },
-
-    "postStartCommand": ". /workspace/.venv/bin/activate && python /project/unicon/config_builder.py && echo '. /workspace/.venv/bin/activate' >> ~/.bashrc"
-
+  "name": "pycharm_development_environment_devcontainer",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
 }
